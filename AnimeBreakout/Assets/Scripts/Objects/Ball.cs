@@ -28,6 +28,11 @@ namespace Game.Objects.Ball
         {
             if (!_isStruck) _rb.gravityScale = _initialGravityScale;
             else _rb.gravityScale = 0f;
+
+            if (_isStruck && !_struckBy.activeSelf)
+            {
+                _isStruck = false;
+            }
         }
 
         public void Strike(float angle, GameObject striker)
