@@ -94,7 +94,14 @@ namespace Game.Character.Player
         {
             Stats.ModifyHealth(-damage);
 
-            StartCoroutine(Blink());
+            if (Stats.Health <= 0)
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                StartCoroutine(Blink());
+            }
         }
 
         IEnumerator Blink()
