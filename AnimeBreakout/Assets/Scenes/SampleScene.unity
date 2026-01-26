@@ -119,6 +119,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &147750633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6989400107493894634, guid: 5f65b30f9b511cd4cbe058834393daf2, type: 3}
+  m_PrefabInstance: {fileID: 2330669009622663153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &147750639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147750633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e6fba91a541c84a8acc573b57b88ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Objects.Block.OnDestroySpawn
+  _spawnObj: {fileID: 1633340332466406745, guid: 1747c14dae141c041a70a16c69bac720, type: 3}
 --- !u!1 &381806791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,6 +1026,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 540213652318303510, guid: 5f65b30f9b511cd4cbe058834393daf2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151756378628448382, guid: 5f65b30f9b511cd4cbe058834393daf2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 2113179401721686816, guid: 5f65b30f9b511cd4cbe058834393daf2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111077461631389557, guid: 5f65b30f9b511cd4cbe058834393daf2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989400107493894634, guid: 5f65b30f9b511cd4cbe058834393daf2, type: 3}
+      propertyPath: m_Name
+      value: BallBlock
+      objectReference: {fileID: 0}
     - target: {fileID: 7750418697989253240, guid: 5f65b30f9b511cd4cbe058834393daf2, type: 3}
       propertyPath: m_Name
       value: BlockManager
@@ -1052,10 +1090,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7891989451420857983, guid: 5f65b30f9b511cd4cbe058834393daf2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.66
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6989400107493894634, guid: 5f65b30f9b511cd4cbe058834393daf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 147750639}
   m_SourcePrefab: {fileID: 100100000, guid: 5f65b30f9b511cd4cbe058834393daf2, type: 3}
 --- !u!1001 &5459212384794097729
 PrefabInstance:

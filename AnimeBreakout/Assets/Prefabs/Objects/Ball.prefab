@@ -168,6 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e59f30ebfbd80b47bd5417060ef3082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Objects.Ball
-  _startSpeed: 8
-  _speedStep: 0.5
+  _startSpeed: 10
+  _speedStep: 0
   _initialGravityScale: 2.5
