@@ -8,7 +8,9 @@ namespace Game.Character.Player
         // Private
         [SerializeField] BoxCollider2D _collider;
 
-        public void Strike(float angle, bool isAuto = false)
+        [SerializeField] float maxAngle = 60f;
+
+        public void Strike(bool isAuto = false)
         {
             var targets = Physics2D.OverlapBoxAll(_collider.bounds.center, _collider.bounds.size, 0);
             var ballMask = LayerMask.NameToLayer("Ball");
@@ -25,7 +27,12 @@ namespace Game.Character.Player
                     if (isAuto)
                     {
                         // Auto
-                        ball.Strike(angle, this.gameObject);
+                        // Sends the ball in a direction based on its offset from the center of the _collider.
+                        var offset = ball.transform.position.x- _collider.bounds.center.x;
+                        var normalizedOffset = Mathf.Clamp(offset / _collider.bounds.extents.x, -1f, 1f);
+                        var newAngle = normalizedOffset * maxAngle;
+
+                        ball.Strike(newAngle, this.gameObject);
                     }
                     else
                     {

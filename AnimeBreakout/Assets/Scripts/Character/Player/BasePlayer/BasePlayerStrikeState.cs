@@ -64,30 +64,15 @@ namespace Game.Character.Player
 
         void HandleStrike(PlayerStateManager sm)
         {
-            var strikeInput = sm.InputManager.StrikeAction.ReadValue<float>();
-            var sprintInput = sm.InputManager.SprintAction.ReadValue<float>();
-            var moveInput = sm.InputManager.MoveAction.ReadValue<Vector2>().x;
-            
-            var strikeAngle = 0f;
-
-            if (moveInput != 0) strikeAngle += 30f;
-            else strikeAngle += 15f;
-
-            if (sprintInput != 0 && moveInput != 0) strikeAngle += 15f;
-
-            if (!sm.GroundClass.IsGrounded()) strikeAngle *= 0.5f;
-
-            strikeAngle *= sm.LastMoveInput;
-
             if (sm.InputManager.StrikeAction.ReadValue<float>() != 0)
             {
                 // Manual
-                sm.StrikeClass.Strike(strikeAngle);
+                sm.StrikeClass.Strike();
             }
             else
             {
                 // Auto
-                sm.StrikeClass.Strike(strikeAngle, true);
+                sm.StrikeClass.Strike(true);
             }
         }
 
