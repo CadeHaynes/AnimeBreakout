@@ -7,6 +7,9 @@ namespace Game.Objects.Block
     public class Block : MonoBehaviour, IDamageable
     {
         BlockManager _bm;
+        Collider2D _collider;
+
+        IOnDestroy[] _onDestroy;
 
         int _maxHealth = 2;
         int _currentHealth;
@@ -30,7 +33,13 @@ namespace Game.Objects.Block
         {
             if (!_bm) _bm = bm;
 
+            _onDestroy = GetComponents<IOnDestroy>();
+            _collider = GetComponent<Collider2D>();
+
             _currentHealth = _maxHealth;
+
+            if (_collider) _collider.enabled = true;
+            
             gameObject.SetActive(true);
         }
 
@@ -40,6 +49,13 @@ namespace Game.Objects.Block
 
             if (_currentHealth <= 0)
             {
+                if (_collider) _collider.enabled = false;
+
+                foreach (IOnDestroy onDestroy in _onDestroy)
+                {
+                    onDestroy.OnDestroyed(gameObject);
+                }
+
                 _bm.DeactivateBlock(this);
             }
             else
