@@ -336,6 +336,7 @@ GameObject:
   - component: {fileID: 3847095525612548797}
   - component: {fileID: 96127819418834622}
   - component: {fileID: 4121400822999286071}
+  - component: {fileID: 4125550260572151197}
   - component: {fileID: 8216026997368750622}
   - component: {fileID: 4320337246445284389}
   - component: {fileID: 2452595397244288278}
@@ -506,6 +507,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Character.CharacterStrike
   _collider: {fileID: 2466228830029254522}
   maxAngle: 30
+--- !u!114 &4125550260572151197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7400007124298684222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c1575556ee1f84f904a8bb24cc5d45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Character.Player.PlayerAnimator
+  _animator: {fileID: 2452595397244288278}
 --- !u!114 &8216026997368750622
 MonoBehaviour:
   m_ObjectHideFlags: 0

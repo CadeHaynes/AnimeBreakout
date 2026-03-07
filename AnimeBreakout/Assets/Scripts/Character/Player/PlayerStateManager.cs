@@ -19,6 +19,7 @@ namespace Game.Character.Player
 
         public PlayerStrike StrikeClass { get; private set; }
         public PlayerInputManager InputManager { get; private set; }
+        public PlayerAnimator PlayerAnimator { get; private set; }
 
         // - States
         public State<PlayerStateManager> AirState { get; private set; }
@@ -73,6 +74,7 @@ namespace Game.Character.Player
             MoveClass = GetComponent<CharacterMovement>();
             Stats = GetComponent<CharacterStats>();
             StrikeClass = GetComponent<PlayerStrike>();
+            PlayerAnimator = GetComponent<PlayerAnimator>();
         }
 
         public void PlayerMove()
@@ -106,14 +108,17 @@ namespace Game.Character.Player
 
         IEnumerator Blink()
         {
+            var isEnabled0 = _sprites[0].enabled;
+            var isEnabled1 = _sprites[1].enabled;
+
             // make sure that _sprites[0] and _sprites[1] are the Player's Lower and Upper body sprites
             for (int i = 0; i < 2; i++)
             {
                 _sprites[0].enabled = false;
                 _sprites[1].enabled = false;
                 yield return new WaitForSeconds(0.05f);
-                _sprites[0].enabled = true;
-                _sprites[1].enabled = true;
+                _sprites[0].enabled = isEnabled0;
+                _sprites[1].enabled = isEnabled1;
                 yield return new WaitForSeconds(0.05f);
             }
         }

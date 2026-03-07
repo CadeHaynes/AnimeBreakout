@@ -74,6 +74,11 @@ namespace Game.Character.Player
                 // Auto
                 sm.StrikeClass.Strike(true);
             }
+
+            if (sm.PlayerAnimator)
+            {
+                sm.PlayerAnimator.PlayAnimation("Strike");
+            }
         }
 
         void CheckGround(PlayerStateManager sm)
