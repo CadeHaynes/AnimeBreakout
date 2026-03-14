@@ -22,6 +22,13 @@ namespace Game.Character
             _rb.linearVelocity = v;
         }
 
+        public void Flip()
+        {
+            var newScale = new Vector3(-_rb.transform.localScale.x, _rb.transform.localScale.y, _rb.transform.localScale.z);
+
+            _rb.transform.localScale = newScale;
+        }
+
         void GetRigidBody()
         {
             if (_rb == null)

@@ -90,6 +90,14 @@ namespace Game.Character.Player
             }
 
             MoveClass.Move(moveInput * speed);
+
+            if (LastMoveInput != moveInput && moveInput != 0)
+            {
+                foreach (SpriteRenderer sprite in _sprites)
+                {
+                    sprite.flipX = moveInput > 0;
+                }
+            }
         }
 
         public void TakeDamage(int damage)
