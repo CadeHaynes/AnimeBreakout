@@ -18,5 +18,10 @@ namespace Game.Character.Player
         {
             _animator.Play(anim, 0, 0f);
         }
+
+        public void SetBool(string name, bool value)
+        {
+            _animator.SetBool(name, value);
+        }
     }
 }
