@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: af7084dc9c832ff47b683d9649277337
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6703723690201983839
+    second: strikeupper3_0
+  - first:
+      213: -4781985358526720218
+    second: strikeupper3_1
+  - first:
+      213: -5804927298202220695
+    second: strikeupper3_2
+  - first:
+      213: -9147937338448664527
+    second: strikeupper3_3
+  - first:
+      213: 1160129497081683300
+    second: strikeupper3_4
+  - first:
+      213: 4403908165711013203
+    second: strikeupper3_5
+  - first:
+      213: -127364181953072378
+    second: strikeupper3_6
+  - first:
+      213: -3461359436439290024
+    second: strikeupper3_7
+  - first:
+      213: -2378528402962733647
+    second: strikeupper3_8
+  - first:
+      213: -8528623992276961661
+    second: strikeupper3_9
+  - first:
+      213: 6497286514305636644
+    second: strikeupper3_10
+  - first:
+      213: 9012383830037675597
+    second: strikeupper3_11
+  - first:
+      213: 3424613249384506939
+    second: strikeupper3_12
+  - first:
+      213: -8758045160352827947
+    second: strikeupper3_13
+  - first:
+      213: -4038249945062563666
+    second: strikeupper3_14
+  - first:
+      213: 7239884602518503073
+    second: strikeupper3_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: strikeupper3_0
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 1078
+        width: 1052
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5b2cdaad29680d50800000000000000
+      internalID: 6703723690201983839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strikeupper3_1
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 1238
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62755e707a9f2adb0800000000000000
+      internalID: -4781985358526720218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strikeupper3_2
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 786
+        width: 301
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96740bbc061c07fa0800000000000000
+      internalID: -5804927298202220695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strikeupper3_3
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 1123
+        width: 86
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1382c32657ffb0180800000000000000
+      internalID: -9147937338448664527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strikeupper3_4
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 940
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46d910781ab991010800000000000000
+      internalID: 1160129497081683300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strikeupper3_5
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 911
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 355a5a0d423dd1d30800000000000000
+      internalID: 4403908165711013203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strikeupper3_6
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 790
+        width: 31
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 603349983f28b3ef0800000000000000
+      internalID: -127364181953072378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strikeupper3_7
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 877
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85ff61f7ee7c6ffc0800000000000000
+      internalID: -3461359436439290024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strikeupper3_8
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 870
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b5aa3df405cdfed0800000000000000
+      internalID: -2378528402962733647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strikeupper3_9
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 855
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38635756aad34a980800000000000000
+      internalID: -8528623992276961661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strikeupper3_10
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 849
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4299f1129affa2a50800000000000000
+      internalID: 6497286514305636644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strikeupper3_11
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 839
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4ebed0085b621d70800000000000000
+      internalID: 9012383830037675597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strikeupper3_12
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 787
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b36e8ae1b9ba68f20800000000000000
+      internalID: 3424613249384506939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strikeupper3_13
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 741
+        width: 202
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d5375a245c257680800000000000000
+      internalID: -8758045160352827947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strikeupper3_14
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 727
+        width: 138
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea02e4e021145f7c0800000000000000
+      internalID: -4038249945062563666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strikeupper3_15
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 726
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ae7febffac397460800000000000000
+      internalID: 7239884602518503073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      strikeupper3_0: 6703723690201983839
+      strikeupper3_1: -4781985358526720218
+      strikeupper3_10: 6497286514305636644
+      strikeupper3_11: 9012383830037675597
+      strikeupper3_12: 3424613249384506939
+      strikeupper3_13: -8758045160352827947
+      strikeupper3_14: -4038249945062563666
+      strikeupper3_15: 7239884602518503073
+      strikeupper3_2: -5804927298202220695
+      strikeupper3_3: -9147937338448664527
+      strikeupper3_4: 1160129497081683300
+      strikeupper3_5: 4403908165711013203
+      strikeupper3_6: -127364181953072378
+      strikeupper3_7: -3461359436439290024
+      strikeupper3_8: -2378528402962733647
+      strikeupper3_9: -8528623992276961661
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
