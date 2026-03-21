@@ -14,9 +14,9 @@ namespace Game.Character.Player
             }
         }
 
-        public void PlayAnimation(string anim)
+        public void PlayAnimation(string anim, int layer)
         {
-            _animator.Play(anim, 0, 0f);
+            _animator.Play(anim, layer, 0f);
         }
 
         public void SetBool(string name, bool value)

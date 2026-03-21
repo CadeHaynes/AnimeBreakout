@@ -97,7 +97,7 @@ namespace Game.Character.Player
 
             if (LastMoveInput != moveInput && moveInput != 0)
             {
-                PlayerAnimator.PlayAnimation("Run Turnaround");
+                PlayerAnimator.PlayAnimation("Run Turnaround", 1);
 
                 foreach (SpriteRenderer sprite in _sprites)
                 {

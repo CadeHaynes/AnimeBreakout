@@ -77,7 +77,7 @@ namespace Game.Character.Player
 
             if (sm.PlayerAnimator)
             {
-                sm.PlayerAnimator.PlayAnimation("Strike");
+                sm.PlayerAnimator.PlayAnimation("Strike", 0);
             }
         }
 
