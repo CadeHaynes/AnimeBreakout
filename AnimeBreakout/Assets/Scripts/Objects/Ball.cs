@@ -11,6 +11,7 @@ namespace Game.Objects.Ball
 
         Rigidbody2D _rb;
         GameObject _struckBy;
+        BallManager _bm;
 
         bool _isStruck = false;
         float _currentSpeed;
@@ -21,6 +22,11 @@ namespace Game.Objects.Ball
         {
             _rb = GetComponent<Rigidbody2D>();
             _currentSpeed = _startSpeed;
+
+            if (!_bm)
+            {
+                ActivateBall();
+            }
         }
 
         // Update is called once per frame
@@ -58,13 +64,39 @@ namespace Game.Objects.Ball
             }
         }
 
+        public void ActivateBall(BallManager bm)
+        {
+            if (!_bm) _bm = bm;
+
+            gameObject.SetActive(true);
+        }
+
+        public void ActivateBall()
+        {
+            if (!_bm)
+            {
+                var bm = FindFirstObjectByType<BallManager>();
+
+                _bm = bm;
+
+                _bm.AddExistingBall(this);
+            }
+        }
+
         void OnCollisionEnter2D(Collision2D collision)
         {
             if (_isStruck)
             {
                 if (collision.gameObject.tag == "Ground")
                 {
-                    TryToDamage(_struckBy);
+                    if (_bm && _bm.BallCount > 1)
+                    {
+                        _bm.DeactivateBall(this);
+                    }
+                    else if (_bm.BallCount <= 1)
+                    {
+                        TryToDamage(_struckBy);
+                    }
                 }
 
                 if (collision.gameObject.tag == "Block")

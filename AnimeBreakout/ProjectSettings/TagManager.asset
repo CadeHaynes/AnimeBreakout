@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Ground
   - Block
+  - Manager
   layers:
   - Default
   - TransparentFX
