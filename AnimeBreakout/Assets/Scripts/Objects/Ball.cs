@@ -25,7 +25,7 @@ namespace Game.Objects.Ball
 
             if (!_bm)
             {
-                ActivateBall();
+                //ActivateBall();
             }
         }
 
@@ -69,18 +69,7 @@ namespace Game.Objects.Ball
             if (!_bm) _bm = bm;
 
             gameObject.SetActive(true);
-        }
-
-        public void ActivateBall()
-        {
-            if (!_bm)
-            {
-                var bm = FindFirstObjectByType<BallManager>();
-
-                _bm = bm;
-
-                _bm.AddExistingBall(this);
-            }
+            _isStruck = false;
         }
 
         void OnCollisionEnter2D(Collision2D collision)

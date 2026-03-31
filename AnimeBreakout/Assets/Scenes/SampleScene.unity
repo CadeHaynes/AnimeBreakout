@@ -124,7 +124,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6989400107493894634, guid: 5f65b30f9b511cd4cbe058834393daf2, type: 3}
   m_PrefabInstance: {fileID: 2330669009622663153}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &147750639
+--- !u!114 &147750641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,10 +133,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 147750633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e6fba91a541c84a8acc573b57b88ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 61acfd1b423b22f4798696d11e53f748, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Objects.Block.OnDestroySpawn
-  _spawnObj: {fileID: 1633340332466406745, guid: 1747c14dae141c041a70a16c69bac720, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::OnDestroyAddBall
+  _ball: {fileID: 1633340332466406745, guid: 1747c14dae141c041a70a16c69bac720, type: 3}
 --- !u!1 &257740346
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,7 +602,7 @@ Transform:
   m_GameObject: {fileID: 575991617}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9222, y: -1.5352, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1281,7 +1281,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6989400107493894634, guid: 5f65b30f9b511cd4cbe058834393daf2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 147750639}
+      addedObject: {fileID: 147750641}
   m_SourcePrefab: {fileID: 100100000, guid: 5f65b30f9b511cd4cbe058834393daf2, type: 3}
 --- !u!1001 &5459212384794097729
 PrefabInstance:
@@ -1353,11 +1353,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1604643894928427928, guid: 3a72dff44c988c04d863d133a6bcec5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.16545
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1604643894928427928, guid: 3a72dff44c988c04d863d133a6bcec5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.99332
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1604643894928427928, guid: 3a72dff44c988c04d863d133a6bcec5f, type: 3}
       propertyPath: m_LocalPosition.z
