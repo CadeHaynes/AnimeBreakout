@@ -6,15 +6,21 @@ namespace Game.Objects.Ball
     public class BallManager : MonoBehaviour
     {
         public int BallCount { get; private set; }
+        public float CurrentBallSpeed { get { return _currentBallSpeed; } }
+        public float BallSpeedStep { get { return _ballSpeedStep; } }
 
         [SerializeField] GameObject _ballPrefab;
         [SerializeField] Vector2 _startBallPos;
+        [SerializeField] float _startBallSpeed = 10f;
+        [SerializeField] float _ballSpeedStep = 0.5f;
 
         List<Ball> _balls = new List<Ball>();
+        float _currentBallSpeed;
 
         public void StartManager()
         {
             BallCount = 0;
+            _currentBallSpeed = _startBallSpeed;
             AddNewBall(_startBallPos);
         }
 
@@ -81,6 +87,32 @@ namespace Game.Objects.Ball
         {
             ball.gameObject.SetActive(false);
             BallCount--;
+        }
+
+        public void IncreaseBallSpeed()
+        {
+            _currentBallSpeed += _ballSpeedStep;
+
+            foreach (var ball in _balls)
+            {
+                if (ball.gameObject.activeSelf)
+                {
+                    ball.SetBallSpeed(_currentBallSpeed);
+                }
+            }
+        }
+
+        public void ResetBallSpeed()
+        {
+            _currentBallSpeed = _startBallSpeed;
+
+            foreach (var ball in _balls)
+            {
+                if (ball.gameObject.activeSelf)
+                {
+                    ball.SetBallSpeed(_currentBallSpeed);
+                }
+            }
         }
     }
 }

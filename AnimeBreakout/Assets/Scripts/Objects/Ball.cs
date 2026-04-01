@@ -4,29 +4,20 @@ using Game.Interfaces;
 namespace Game.Objects.Ball
 {
     public class Ball : MonoBehaviour
-    {
-        [SerializeField] float _startSpeed = 8f;
-        [SerializeField] float _speedStep = 0.5f;
-        [SerializeField] float _initialGravityScale = 2.5f;
-
+    {      
         Rigidbody2D _rb;
         GameObject _struckBy;
         BallManager _bm;
 
         bool _isStruck = false;
         float _currentSpeed;
+        float _initialGravityScale = 2.5f;
         int _damage = 1;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
-            _currentSpeed = _startSpeed;
-
-            if (!_bm)
-            {
-                //ActivateBall();
-            }
         }
 
         // Update is called once per frame
@@ -47,7 +38,8 @@ namespace Game.Objects.Ball
 
             _struckBy = striker;
 
-            _currentSpeed += _speedStep;
+            if (_bm) _bm.IncreaseBallSpeed();
+
             _rb.linearVelocity = new Vector2(Mathf.Sin(angle * Mathf.Deg2Rad), Mathf.Cos(angle * Mathf.Deg2Rad)) * _currentSpeed;
         }
 
@@ -70,6 +62,12 @@ namespace Game.Objects.Ball
 
             gameObject.SetActive(true);
             _isStruck = false;
+            _currentSpeed = bm.CurrentBallSpeed;
+        }
+
+        public void SetBallSpeed(float speed)
+        {
+            _currentSpeed = speed;
         }
 
         void OnCollisionEnter2D(Collision2D collision)
@@ -78,6 +76,8 @@ namespace Game.Objects.Ball
             {
                 if (collision.gameObject.tag == "Ground")
                 {
+                    if (_bm) _bm.ResetBallSpeed();
+
                     if (_bm && _bm.BallCount > 1)
                     {
                         _bm.DeactivateBall(this);
