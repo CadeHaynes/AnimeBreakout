@@ -32,11 +32,12 @@ namespace Game.Character.Player
                         var normalizedOffset = Mathf.Clamp(offset / _collider.bounds.extents.x, -1f, 1f);
                         var newAngle = normalizedOffset * maxAngle;
 
-                        ball.Strike(newAngle, this.gameObject);
+                        ball.Strike(newAngle, gameObject);
                     }
                     else
                     {
                         // Manual
+                        ball.Bunt(gameObject);
                     }
                 }
             }
