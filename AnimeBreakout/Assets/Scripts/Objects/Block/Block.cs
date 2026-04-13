@@ -1,12 +1,14 @@
 using UnityEngine;
 using Game.Interfaces;
 using System.Collections;
+using Game.Objects.Layout;
 
-namespace Game.Objects.Block
+namespace Game.Objects.Blocks
 {
     public class Block : MonoBehaviour, IDamageable
     {
         BlockManager _bm;
+        LayoutManager _lm;
         Collider2D _collider;
 
         IOnDestroy[] _onDestroy;
@@ -16,18 +18,7 @@ namespace Game.Objects.Block
 
         public int MaxHealth { get; set; }
         public int CurrentHealth { get; private set; }
-
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        public bool IsGround { get; private set; }
 
         public void ActivateBlock(BlockManager bm)
         {
@@ -40,6 +31,21 @@ namespace Game.Objects.Block
 
             if (_collider) _collider.enabled = true;
             
+            gameObject.SetActive(true);
+        }
+
+        public void ActivateBlock(LayoutManager lm, bool isGround)
+        {
+            if (!_lm) _lm = lm;
+            IsGround = isGround;
+
+            _onDestroy = GetComponents<IOnDestroy>();
+            _collider = GetComponent<Collider2D>();
+
+            _currentHealth = _maxHealth;
+
+            if (_collider) _collider.enabled = true;
+
             gameObject.SetActive(true);
         }
 
@@ -56,7 +62,7 @@ namespace Game.Objects.Block
                     onDestroy.OnDestroyed(gameObject);
                 }
 
-                _bm.DeactivateBlock(this);
+                _lm.DeactivateBlock(this);
             }
             else
             {

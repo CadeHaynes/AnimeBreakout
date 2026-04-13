@@ -1,4 +1,4 @@
-using Game.Objects.Block;
+using Game.Objects.Blocks;
 using UnityEngine;
 
 namespace Game

@@ -24,8 +24,6 @@ namespace Game.StateMachine
 
             CurrentState = _newState;
             CurrentState.OnEnter((T) this);
-
-            Debug.Log(CurrentState);
         }
     }
 }

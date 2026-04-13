@@ -1,6 +1,5 @@
 using UnityEngine;
 using Game.Interfaces;
-using UnityEngine.Rendering;
 using System.Collections;
 
 namespace Game.Objects.Ball

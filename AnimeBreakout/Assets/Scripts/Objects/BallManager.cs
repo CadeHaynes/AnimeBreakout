@@ -28,8 +28,6 @@ namespace Game.Objects.Ball
         void Start()
         {
             StartManager();
-
-            Debug.Log("Start");
         }
 
         public void AddNewBall(Vector2 pos)
@@ -79,8 +77,6 @@ namespace Game.Objects.Ball
                 
                 BallCount++;
             }
-
-            Debug.Log("Ball Count" + BallCount);
         }
 
         public void DeactivateBall(Ball ball)

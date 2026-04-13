@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Objects.Block
+namespace Game.Objects.Blocks
 {
     public class BlockManager : MonoBehaviour
     {

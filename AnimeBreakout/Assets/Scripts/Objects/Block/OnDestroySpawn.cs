@@ -1,7 +1,7 @@
 using UnityEngine;
 using Game.Interfaces;
 
-namespace Game.Objects.Block
+namespace Game.Objects.Blocks
 {
     public class OnDestroySpawn : MonoBehaviour, IOnDestroy
     {
