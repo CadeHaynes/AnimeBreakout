@@ -8,6 +8,7 @@ namespace Game.Objects.Layout
     {
         [SerializeField] GameObject[] _blockPrefabs;
         [SerializeField] Layout[] _layouts;
+        [SerializeField] Layout _groundLayout;
 
         List<Block> _allBlocks = new List<Block>();
         List<Block> _currentGroundBlocks = new List<Block>();
@@ -29,7 +30,7 @@ namespace Game.Objects.Layout
             if (_currentAirBlocks.Count <= 0)
             {
                 Debug.Log("restarting layout");
-                InitialiseLayout();
+                InitialiseLayout(true);
             }
         }
 
@@ -40,7 +41,18 @@ namespace Game.Objects.Layout
 
         void InitialiseLayout(bool resetGround = false)
         {
-            if (resetGround) _currentGroundBlocks.Clear();
+            if (resetGround)
+            {
+                // Deactivate existing ground blocks so they can be reused, then clear the list.
+                for (int i = 0; i < _currentGroundBlocks.Count; i++)
+                {
+                    var b = _currentGroundBlocks[i];
+                    if (b != null) b.gameObject.SetActive(false);
+                }
+
+                _currentGroundBlocks.Clear();
+            }
+
             _currentAirBlocks.Clear();
 
             var layoutIndex = Random.Range(0, _layouts.Length);
@@ -54,35 +66,39 @@ namespace Game.Objects.Layout
                     AddNewBlock(coords);
                 }
             }
+
+            if (_groundLayout != null && resetGround)
+            {
+                var groundBlocks = _groundLayout.BlockCoords;
+
+                foreach (var coords in groundBlocks)
+                {
+                    AddNewBlock(coords, true);
+                }
+            }
         }
 
         void AddNewBlock(Vector2 pos, bool isGround = false)
         {
-            if (_allBlocks.Count == _totalBlocks)
+            // Try to reuse an inactive block from the pool first.
+            for (int i = 0; i < _allBlocks.Count; i++)
             {
-                InstantiateNewBlock(pos, isGround);
-                _totalBlocks++;
-            }
-            else
-            {
-                for (int i = 0; i < _allBlocks.Count; i++)
+                var currBlock = _allBlocks[i];
+
+                if (!currBlock.gameObject.activeSelf)
                 {
-                    var currBlock = _allBlocks[i];
+                    currBlock.transform.position = pos;
+                    _allBlocks[i].ActivateBlock(this, isGround);
 
-                    if (!currBlock.gameObject.activeSelf)
-                    {
-                        currBlock.transform.position = pos;
-                        _allBlocks[i].ActivateBlock(this, isGround);
+                    if (isGround) _currentGroundBlocks.Add(currBlock);
+                    else _currentAirBlocks.Add(currBlock);
 
-                        if (isGround) _currentGroundBlocks.Add(currBlock);
-                        else _currentAirBlocks.Add(currBlock);
-
-                        _totalBlocks++;
-
-                        break;
-                    }
+                    return;
                 }
             }
+
+            // No inactive block available -> instantiate a new one.
+            InstantiateNewBlock(pos, isGround);
         }
 
         void InstantiateNewBlock(Vector2 pos, bool isGround = false)
@@ -114,7 +130,7 @@ namespace Game.Objects.Layout
             if (block.IsGround) _currentGroundBlocks.Remove(block);
             else _currentAirBlocks.Remove(block);
 
-            _totalBlocks--;
+            // _totalBlocks is recalculated each Update, so don't manage it here.
         }
     }
 }

@@ -5,7 +5,7 @@ namespace Game.Character
     public class CharacterGround : MonoBehaviour
     {
         // Private
-        [SerializeField] LayerMask _groundLayer;
+        [SerializeField] LayerMask _groundLayers;
 
         [SerializeField] int _airborneGravityScale = 5;
 
@@ -16,7 +16,7 @@ namespace Game.Character
 
         public bool IsGrounded()
         {
-            bool isGrounded = Physics2D.BoxCast(transform.position, transform.localScale, 0f, Vector2.down, 0.2f, _groundLayer);
+            bool isGrounded = Physics2D.BoxCast(transform.position, transform.localScale, 0f, Vector2.down, 0.2f, _groundLayers);
 
             return isGrounded;
         }
