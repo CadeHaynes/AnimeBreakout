@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Objects.Layout.Layout
   _blockCoords:
   - {x: 0, y: -7}
-  - {x: 1.8, y: -7}
-  - {x: 3.6, y: -7}
-  - {x: 5.4, y: -7}
-  - {x: -1.8, y: -7}
-  - {x: -3.6, y: -7}
-  - {x: -5.4, y: -7}
+  - {x: 2, y: -7}
+  - {x: 4, y: -7}
+  - {x: 6, y: -7}
+  - {x: -2, y: -7}
+  - {x: -4, y: -7}
+  - {x: -6, y: -7}

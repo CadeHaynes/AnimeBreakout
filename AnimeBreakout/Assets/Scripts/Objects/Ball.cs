@@ -74,7 +74,11 @@ namespace Game.Objects.Ball
 
         void TryToDamage(GameObject obj)
         {
-            if (obj.TryGetComponent<IDamageable>(out var damageable))
+            var damageable = obj.GetComponentInParent<IDamageable>();
+
+            Debug.Log(damageable);
+
+            if (damageable != null)
             {
                 damageable.TakeDamage(_damage);
             }
@@ -107,6 +111,8 @@ namespace Game.Objects.Ball
         {
             if (_isStruck)
             {
+                Debug.Log(collision.gameObject);
+
                 if (collision.gameObject.tag == "Ground")
                 {
                     if (_bm) _bm.ResetBallSpeed();

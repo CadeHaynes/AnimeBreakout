@@ -108,7 +108,7 @@ namespace Game.Objects.Layout
 
             var randBlock = 0;
 
-            var newBlock = Instantiate(_blockPrefabs[randBlock], pos, Quaternion.identity);
+            var newBlock = Instantiate(_blockPrefabs[randBlock], pos, Quaternion.identity, transform);
 
             var blockClass = newBlock.GetComponent<Block>();
 
