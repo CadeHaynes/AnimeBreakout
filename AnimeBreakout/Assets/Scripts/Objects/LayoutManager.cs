@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Objects.Blocks;
+using Game.Objects.Balls;
 
 namespace Game.Objects.Layout
 {
@@ -13,6 +14,8 @@ namespace Game.Objects.Layout
         List<Block> _allBlocks = new List<Block>();
         List<Block> _currentGroundBlocks = new List<Block>();
         List<Block> _currentAirBlocks = new List<Block>();
+
+        List<GameObject> _balls = new List<GameObject>();
 
         int _totalBlocks = 0;
 
@@ -131,6 +134,48 @@ namespace Game.Objects.Layout
             else _currentAirBlocks.Remove(block);
 
             // _totalBlocks is recalculated each Update, so don't manage it here.
+        }
+
+        public void DamageBlock(Ball ball)
+        {
+            var currentBlock = _allBlocks[0];
+
+            //Loop through each block, store closest active block to ball, then damage that block.
+            if (_allBlocks.Count >= 0)
+            {
+                foreach (var block in _allBlocks)
+                {
+                    var dist = Vector2.Distance(block.transform.position, ball.transform.position);
+
+                    if (dist < Vector2.Distance(currentBlock.transform.position, ball.transform.position) &&
+                        block.gameObject.activeSelf)
+                    {
+                        currentBlock = block;
+                    }
+                }
+
+                currentBlock.TakeDamage(ball.Damage);
+            }
+
+        }
+
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag == "Ball")
+            {
+                Debug.Log("Collision with ball successful");
+
+                var ball = collision.gameObject.GetComponent<Ball>();
+
+                Debug.Log(ball);
+
+                if (ball && ball.IsStruck)
+                {
+                    Debug.Log("Attempting to damage block");
+
+                    DamageBlock(ball);
+                }
+            }
         }
     }
 }

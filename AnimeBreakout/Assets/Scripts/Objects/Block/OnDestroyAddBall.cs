@@ -1,6 +1,6 @@
 using UnityEngine;
 using Game.Interfaces;
-using Game.Objects.Ball;
+using Game.Objects.Balls;
 
 public class OnDestroyAddBall : MonoBehaviour, IOnDestroy
 {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Objects.Ball
+namespace Game.Objects.Balls
 {
     public class BallManager : MonoBehaviour
     {

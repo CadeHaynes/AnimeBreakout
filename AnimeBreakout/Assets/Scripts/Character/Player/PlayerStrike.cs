@@ -1,5 +1,5 @@
 using UnityEngine;
-using Game.Objects.Ball;
+using Game.Objects.Balls;
 
 namespace Game.Character.Player
 {

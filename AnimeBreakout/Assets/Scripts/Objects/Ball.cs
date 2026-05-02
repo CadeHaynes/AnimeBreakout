@@ -2,7 +2,7 @@ using UnityEngine;
 using Game.Interfaces;
 using System.Collections;
 
-namespace Game.Objects.Ball
+namespace Game.Objects.Balls
 {
     public class Ball : MonoBehaviour
     {      
@@ -19,6 +19,9 @@ namespace Game.Objects.Ball
         float _buntXModifier = 0.5f;
         float _buntCooldown = 0.2f;
         int _damage = 1;
+
+        public bool IsStruck { get { return _isStruck; } }
+        public int Damage { get { return _damage; } }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
@@ -111,8 +114,6 @@ namespace Game.Objects.Ball
         {
             if (_isStruck)
             {
-                Debug.Log(collision.gameObject);
-
                 if (collision.gameObject.tag == "Ground")
                 {
                     if (_bm) _bm.ResetBallSpeed();
@@ -129,7 +130,7 @@ namespace Game.Objects.Ball
 
                 if (collision.gameObject.tag == "Block")
                 {
-                    TryToDamage(collision.gameObject);
+                    //TryToDamage(collision.gameObject);
                 }
             }
         }

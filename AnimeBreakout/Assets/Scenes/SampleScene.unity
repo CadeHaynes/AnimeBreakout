@@ -1089,7 +1089,7 @@ GameObject:
   - component: {fileID: 2116188018}
   - component: {fileID: 2116188021}
   - component: {fileID: 2116188020}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: LayoutManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
