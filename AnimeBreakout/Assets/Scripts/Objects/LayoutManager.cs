@@ -11,6 +11,8 @@ namespace Game.Objects.Layout
         [SerializeField] Layout[] _layouts;
         [SerializeField] Layout _groundLayout;
 
+        [SerializeField] bool _resetGround;
+
         List<Block> _allBlocks = new List<Block>();
         List<Block> _currentGroundBlocks = new List<Block>();
         List<Block> _currentAirBlocks = new List<Block>();
@@ -33,7 +35,7 @@ namespace Game.Objects.Layout
             if (_currentAirBlocks.Count <= 0)
             {
                 Debug.Log("restarting layout");
-                InitialiseLayout(true);
+                InitialiseLayout(_resetGround);
             }
         }
 

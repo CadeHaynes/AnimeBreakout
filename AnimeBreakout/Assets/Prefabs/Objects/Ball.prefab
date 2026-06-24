@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5266714, y: -8.644902, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -229,21 +229,21 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: -1.005682
-        outSlope: -1.005682
+        value: 0.5
+        inSlope: -0.50959176
+        outSlope: -0.50959176
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.99999994
+        outWeight: 0.9923273
       - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: -0.9917817
-        outSlope: -0.9917817
+        inSlope: -0.49114865
+        outSlope: -0.49114865
         tangentMode: 0
         weightedMode: 0
-        inWeight: 1
+        inWeight: 0.9948849
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2

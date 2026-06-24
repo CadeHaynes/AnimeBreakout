@@ -95,13 +95,16 @@ namespace Game.Character.Player
 
             PlayerAnimator.SetBool("IsMoving", isMoving);
 
-            if (LastMoveInput != moveInput && moveInput != 0)
+            if (moveInput != 0)
             {
-                PlayerAnimator.PlayAnimation("Run Turnaround", 1);
-
                 foreach (SpriteRenderer sprite in _sprites)
                 {
                     sprite.flipX = moveInput > 0;
+                }
+
+                if (LastMoveInput != moveInput)
+                {
+                    PlayerAnimator.PlayAnimation("Run Turnaround", 1);
                 }
             }
         }

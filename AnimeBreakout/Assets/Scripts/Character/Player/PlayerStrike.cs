@@ -50,6 +50,6 @@ namespace Game.Character.Player
             var bound = Physics2D.OverlapBox(_collider.bounds.center, _collider.bounds.size, 0, ballMask);
             
             return bound;
-        }    
+        }
     }
 }

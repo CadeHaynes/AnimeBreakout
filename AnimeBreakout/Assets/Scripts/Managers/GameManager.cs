@@ -7,9 +7,10 @@ namespace Game
     {
         /*
          * Game manager should do the following:
-         * - Store and control all balls
-         * - Store and control player info
-         * - Manage pause menus
+         * - Store and control all in-play managers
+         * -----> LayoutManager
+         * -----> BallManager
+         * -----> UIManager
          */
 
         BlockManager _blockManager;
