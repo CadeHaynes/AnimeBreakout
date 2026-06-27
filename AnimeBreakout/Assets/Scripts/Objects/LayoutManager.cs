@@ -21,6 +21,9 @@ namespace Game.Objects.Layout
 
         int _totalBlocks = 0;
 
+        public event System.Action OnAirBlockDestroyed;
+        public event System.Action OnGroundBlockDestroyed;
+
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
@@ -157,6 +160,9 @@ namespace Game.Objects.Layout
                 }
 
                 currentBlock.TakeDamage(ball.Damage);
+
+                if (_currentGroundBlocks.Contains(currentBlock)) OnGroundBlockDestroyed?.Invoke();
+                if (_currentAirBlocks.Contains(currentBlock)) OnAirBlockDestroyed?.Invoke();
             }
 
         }
@@ -165,16 +171,10 @@ namespace Game.Objects.Layout
         {
             if (collision.gameObject.tag == "Ball")
             {
-                Debug.Log("Collision with ball successful");
-
                 var ball = collision.gameObject.GetComponent<Ball>();
-
-                Debug.Log(ball);
 
                 if (ball && ball.IsStruck)
                 {
-                    Debug.Log("Attempting to damage block");
-
                     DamageBlock(ball);
                 }
             }

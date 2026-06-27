@@ -1,24 +1,27 @@
 using UnityEngine;
 using Game.Interfaces;
 using System.Collections;
-using System;
 
 namespace Game.Objects.Balls
 {
     public class Ball : MonoBehaviour
     {      
         Rigidbody2D _rb;
+
         GameObject _struckBy;
+
         BallManager _bm;
 
         bool _isStruck = false;
         bool _isBunted = false;
         bool _buntable = true;
+
         float _currentSpeed;
         float _initialGravityScale = 2.5f;
         float _buntHeight = 5f;
         float _buntXModifier = 0.5f;
         float _buntCooldown = 0.2f;
+
         int _damage = 1;
 
         public bool IsStruck { get { return _isStruck; } }
@@ -100,6 +103,8 @@ namespace Game.Objects.Balls
         public void SetBallSpeed(float speed)
         {
             _currentSpeed = speed;
+
+            _rb.linearVelocity = _rb.linearVelocity.normalized * _currentSpeed;
         }
 
         IEnumerator BuntCooldown()
@@ -117,7 +122,7 @@ namespace Game.Objects.Balls
             {
                 if (collision.gameObject.tag == "Ground")
                 {
-                    if (_bm) _bm.ResetBallSpeed();
+                    //if (_bm) _bm.ResetBallSpeed();
 
                     if (_bm && _bm.BallCount > 1)
                     {

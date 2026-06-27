@@ -1,26 +1,35 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Objects.Layout;
 
 namespace Game.Objects.Balls
 {
     public class BallManager : MonoBehaviour
     {
-        public int BallCount { get; private set; }
-        public float CurrentBallSpeed { get { return _currentBallSpeed; } }
-        public float BallSpeedStep { get { return _ballSpeedStep; } }
-
         [SerializeField] GameObject _ballPrefab;
+
+        [SerializeField] LayoutManager _lm;
+
         [SerializeField] Vector2 _startBallPos;
+
         [SerializeField] float _startBallSpeed = 10f;
         [SerializeField] float _ballSpeedStep = 0.5f;
 
-        List<Ball> _balls = new List<Ball>();
         float _currentBallSpeed;
+
+        List<Ball> _balls = new List<Ball>();
+
+        public int BallCount { get; private set; }
+        public float CurrentBallSpeed { get { return _currentBallSpeed; } }
+        public float BallSpeedStep { get { return _ballSpeedStep; } }
 
         public void StartManager()
         {
             BallCount = 0;
             _currentBallSpeed = _startBallSpeed;
+            
+            if (_lm) _lm.OnGroundBlockDestroyed += ResetBallSpeed;
+
             AddNewBall(_startBallPos);
         }
 

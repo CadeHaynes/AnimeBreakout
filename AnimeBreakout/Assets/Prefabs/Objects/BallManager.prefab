@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3153694209537601313}
   m_Layer: 0
   m_Name: BallManager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,4 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Objects.Ball.BallManager
   _ballPrefab: {fileID: 1633340332466406745, guid: 1747c14dae141c041a70a16c69bac720, type: 3}
+  _lm: {fileID: 0}
   _startBallPos: {x: 3, y: -1}
+  _startBallSpeed: 10
+  _ballSpeedStep: 0.5
