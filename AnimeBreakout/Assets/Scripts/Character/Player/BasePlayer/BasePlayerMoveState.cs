@@ -1,5 +1,4 @@
 using Game.StateMachine;
-using UnityEngine;
 
 namespace Game.Character.Player
 {

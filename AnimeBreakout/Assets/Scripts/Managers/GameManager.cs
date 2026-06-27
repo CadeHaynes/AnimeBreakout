@@ -13,7 +13,7 @@ namespace Game
          * -----> UIManager
          */
 
-        BlockManager _blockManager;
+        //BlockManager _blockManager;
 
     }
 }
