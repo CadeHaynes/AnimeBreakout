@@ -24,7 +24,11 @@ namespace Game.Character.Player
         {
             HandleStrike(sm);
 
-            sm.PlayerMove();
+            if (sm.LastMoveInput != 0)
+            {
+                sm.PlayerMove();
+            }
+
             Jump(sm);
 
             CheckGround(sm);

@@ -27,7 +27,7 @@ namespace Game.Objects.Layout
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            StartManager();
+            //StartManager();
         }
 
         // Update is called once per frame
@@ -42,7 +42,7 @@ namespace Game.Objects.Layout
             }
         }
 
-        void StartManager()
+        public void StartManager()
         {
             InitialiseLayout(true);
         }

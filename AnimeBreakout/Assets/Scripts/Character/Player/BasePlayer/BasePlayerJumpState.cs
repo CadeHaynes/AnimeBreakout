@@ -15,7 +15,11 @@ namespace Game.Character.Player
 
         public override void OnUpdate(PlayerStateManager sm)
         {
-            sm.PlayerMove();
+            if (sm.LastMoveInput != 0)
+            {
+                sm.PlayerMove();
+            }
+
             EndJump(sm);            
 
             AirborneTransition(sm);
