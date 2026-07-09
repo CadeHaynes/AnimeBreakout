@@ -7,7 +7,6 @@ namespace Game.Objects.Blocks
 {
     public class Block : MonoBehaviour, IDamageable
     {
-        BlockManager _bm;
         LayoutManager _lm;
         Collider2D _collider;
 
@@ -20,20 +19,6 @@ namespace Game.Objects.Blocks
         public int CurrentHealth { get; private set; }
         public bool IsGround { get; private set; }
         public Collider2D Collider => _collider;
-
-        public void ActivateBlock(BlockManager bm)
-        {
-            if (!_bm) _bm = bm;
-
-            _onDestroy = GetComponents<IOnDestroy>();
-            _collider = GetComponent<Collider2D>();
-
-            _currentHealth = _maxHealth;
-
-            if (_collider) _collider.enabled = true;
-            
-            gameObject.SetActive(true);
-        }
 
         public void ActivateBlock(LayoutManager lm, bool isGround)
         {

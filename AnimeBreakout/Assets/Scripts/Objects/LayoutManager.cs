@@ -20,10 +20,6 @@ namespace Game.Objects.Layout
         List<Block> _currentGroundBlocks = new List<Block>();
         List<Block> _currentAirBlocks = new List<Block>();
 
-        List<GameObject> _balls = new List<GameObject>();
-
-        int _totalBlocks = 0;
-
         public event System.Action OnAirBlockDestroyed;
         public event System.Action OnGroundBlockDestroyed;
 
@@ -36,7 +32,6 @@ namespace Game.Objects.Layout
         // Update is called once per frame
         void Update()
         {
-            _totalBlocks = _currentAirBlocks.Count + _currentGroundBlocks.Count;
 
             if (_currentAirBlocks.Count <= 0)
             {
@@ -65,21 +60,6 @@ namespace Game.Objects.Layout
             }
 
             _currentAirBlocks.Clear();
-
-            
-            //var layoutIndex = Random.Range(0, _layouts.Length);
-
-            /*
-            if (_layouts[layoutIndex] != null) 
-            {
-                var blocks = _layouts[layoutIndex].BlockCoords;
-
-                foreach (var coords in blocks)
-                {
-                    AddNewBlock(coords);
-                }
-            }
-            */
 
             var layoutIndex = Random.Range(0, _layoutPrefabs.Length);
 
