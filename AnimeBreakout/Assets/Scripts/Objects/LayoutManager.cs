@@ -9,10 +9,8 @@ namespace Game.Objects.Layout
     public class LayoutManager : MonoBehaviour
     {
         [SerializeField] GameObject[] _blockPrefabs;
-        [SerializeField] Layout[] _layouts;
-        [SerializeField] Layout _groundLayout;
-
         [SerializeField] GameObject[] _layoutPrefabs;
+        [SerializeField] GameObject _groundLayoutPrefab;
 
         [SerializeField] bool _resetGround;
 
@@ -23,16 +21,9 @@ namespace Game.Objects.Layout
         public event System.Action OnAirBlockDestroyed;
         public event System.Action OnGroundBlockDestroyed;
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-            //StartManager();
-        }
-
         // Update is called once per frame
         void Update()
         {
-
             if (_currentAirBlocks.Count <= 0)
             {
                 Debug.Log("restarting layout");
@@ -74,13 +65,13 @@ namespace Game.Objects.Layout
                 }
             }
 
-            if (_groundLayout != null && resetGround)
+            if (_groundLayoutPrefab != null && resetGround)
             {
-                var groundBlocks = _groundLayout.BlockCoords;
+                var groundBlocks = _groundLayoutPrefab.GetComponentsInChildren<Block>();
 
-                foreach (var coords in groundBlocks)
+                foreach (var block in groundBlocks)
                 {
-                    AddNewBlock(coords, true);
+                    AddNewBlock(block.transform, true);
                 }
             }
         }
