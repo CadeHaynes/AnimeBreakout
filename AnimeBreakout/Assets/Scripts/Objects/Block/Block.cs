@@ -19,6 +19,7 @@ namespace Game.Objects.Blocks
         public int MaxHealth { get; set; }
         public int CurrentHealth { get; private set; }
         public bool IsGround { get; private set; }
+        public Collider2D Collider => _collider;
 
         public void ActivateBlock(BlockManager bm)
         {

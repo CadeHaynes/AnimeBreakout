@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.Objects.Blocks;
 using Game.Objects.Balls;
+using UnityEngine.Rendering;
 
 namespace Game.Objects.Layout
 {
@@ -10,6 +11,8 @@ namespace Game.Objects.Layout
         [SerializeField] GameObject[] _blockPrefabs;
         [SerializeField] Layout[] _layouts;
         [SerializeField] Layout _groundLayout;
+
+        [SerializeField] GameObject[] _layoutPrefabs;
 
         [SerializeField] bool _resetGround;
 
@@ -63,8 +66,10 @@ namespace Game.Objects.Layout
 
             _currentAirBlocks.Clear();
 
-            var layoutIndex = Random.Range(0, _layouts.Length);
+            
+            //var layoutIndex = Random.Range(0, _layouts.Length);
 
+            /*
             if (_layouts[layoutIndex] != null) 
             {
                 var blocks = _layouts[layoutIndex].BlockCoords;
@@ -72,6 +77,20 @@ namespace Game.Objects.Layout
                 foreach (var coords in blocks)
                 {
                     AddNewBlock(coords);
+                }
+            }
+            */
+
+            var layoutIndex = Random.Range(0, _layoutPrefabs.Length);
+
+            if (_layoutPrefabs[layoutIndex] != null)
+            {
+                // maybe could use a class that stores all the blocks?
+                var blocks = _layoutPrefabs[layoutIndex].GetComponentsInChildren<Block>();
+
+                foreach (var block in blocks)
+                {
+                    AddNewBlock(block.transform);
                 }
             }
 
@@ -109,6 +128,29 @@ namespace Game.Objects.Layout
             InstantiateNewBlock(pos, isGround);
         }
 
+        void AddNewBlock(Transform transform, bool isGround = false)
+        {
+            for (int i = 0; i < _allBlocks.Count; i++)
+            {
+                var currBlock = _allBlocks[i];
+
+                if (!currBlock.gameObject.activeSelf)
+                {
+                    currBlock.transform.position = transform.position;
+                    currBlock.transform.rotation = transform.rotation;
+                    currBlock.transform.localScale = transform.localScale;
+                    _allBlocks[i].ActivateBlock(this, isGround);
+
+                    if (isGround) _currentGroundBlocks.Add(currBlock);
+                    else _currentAirBlocks.Add(currBlock);
+
+                    return;
+                }
+            }
+
+            InstantiateNewBlock(transform, isGround);
+        }
+
         void InstantiateNewBlock(Vector2 pos, bool isGround = false)
         {
             //logic here to randomly choose block from block prefab, with more chances for basic block.
@@ -117,6 +159,24 @@ namespace Game.Objects.Layout
             var randBlock = 0;
 
             var newBlock = Instantiate(_blockPrefabs[randBlock], pos, Quaternion.identity, transform);
+
+            var blockClass = newBlock.GetComponent<Block>();
+
+            if (blockClass != null)
+            {
+                blockClass.ActivateBlock(this, isGround);
+
+                if (isGround) _currentGroundBlocks.Add(blockClass);
+                else _currentAirBlocks.Add(blockClass);
+
+                _allBlocks.Add(blockClass);
+            }
+        }
+
+        void InstantiateNewBlock(Transform transform, bool isGround = false)
+        {
+            var newBlock = Instantiate(_blockPrefabs[0], transform.position, transform.rotation, this.transform);
+            newBlock.transform.localScale = transform.localScale;
 
             var blockClass = newBlock.GetComponent<Block>();
 
