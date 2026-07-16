@@ -3,6 +3,8 @@ using UnityEngine;
 using Game.Objects.Blocks;
 using Game.Objects.Balls;
 using UnityEngine.Rendering;
+using Game.Interfaces;
+using Unity.VisualScripting;
 
 namespace Game.Objects.Layout
 {
@@ -58,10 +60,18 @@ namespace Game.Objects.Layout
             {
                 // maybe could use a class that stores all the blocks?
                 var blocks = _layoutPrefabs[layoutIndex].GetComponentsInChildren<Block>();
+                var index = 0;
 
                 foreach (var block in blocks)
                 {
                     AddNewBlock(block.transform);
+
+                    if (block.GetComponents<IOnDestroy>().Length > 0)
+                    {
+                        foreach (IOnDestroy onDestroy in block.GetComponents<IOnDestroy>()) _allBlocks[index].gameObject.AddComponent(onDestroy.GetType());
+                    }
+
+                    index++;
                 }
             }
 
@@ -74,29 +84,6 @@ namespace Game.Objects.Layout
                     AddNewBlock(block.transform, true);
                 }
             }
-        }
-
-        void AddNewBlock(Vector2 pos, bool isGround = false)
-        {
-            // Try to reuse an inactive block from the pool first.
-            for (int i = 0; i < _allBlocks.Count; i++)
-            {
-                var currBlock = _allBlocks[i];
-
-                if (!currBlock.gameObject.activeSelf)
-                {
-                    currBlock.transform.position = pos;
-                    _allBlocks[i].ActivateBlock(this, isGround);
-
-                    if (isGround) _currentGroundBlocks.Add(currBlock);
-                    else _currentAirBlocks.Add(currBlock);
-
-                    return;
-                }
-            }
-
-            // No inactive block available -> instantiate a new one.
-            InstantiateNewBlock(pos, isGround);
         }
 
         void AddNewBlock(Transform transform, bool isGround = false)
@@ -120,28 +107,6 @@ namespace Game.Objects.Layout
             }
 
             InstantiateNewBlock(transform, isGround);
-        }
-
-        void InstantiateNewBlock(Vector2 pos, bool isGround = false)
-        {
-            //logic here to randomly choose block from block prefab, with more chances for basic block.
-            //for now, basic block will be set to 0, and will always be chosen
-
-            var randBlock = 0;
-
-            var newBlock = Instantiate(_blockPrefabs[randBlock], pos, Quaternion.identity, transform);
-
-            var blockClass = newBlock.GetComponent<Block>();
-
-            if (blockClass != null)
-            {
-                blockClass.ActivateBlock(this, isGround);
-
-                if (isGround) _currentGroundBlocks.Add(blockClass);
-                else _currentAirBlocks.Add(blockClass);
-
-                _allBlocks.Add(blockClass);
-            }
         }
 
         void InstantiateNewBlock(Transform transform, bool isGround = false)

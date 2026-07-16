@@ -43,7 +43,7 @@ namespace Game.Objects.Blocks
             {
                 if (_collider) _collider.enabled = false;
 
-                foreach (IOnDestroy onDestroy in _onDestroy)
+                foreach (IOnDestroy onDestroy in GetComponents<IOnDestroy>())
                 {
                     onDestroy.OnDestroyed(gameObject);
                 }

@@ -34,19 +34,24 @@ namespace Game.Objects.Balls
         }
 
         //Just for testing
+        /*
         void Start()
         {
             StartManager();
         }
+        */
 
         public void AddNewBall(Vector2 pos)
         {
+            
             if (BallCount == _balls.Count)
             {
                 InstantiateNewBall(pos);
+                Debug.Log("called instantiate new ball");
             }
             else
             {
+                Debug.Log("called add pooled ball");
                 for (int i = 0;  i < _balls.Count; i++)
                 {
                     var currBall = _balls[i].gameObject;

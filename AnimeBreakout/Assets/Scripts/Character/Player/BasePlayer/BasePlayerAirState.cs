@@ -53,7 +53,7 @@ namespace Game.Character.Player
 
         void StrikeTransition(PlayerStateManager sm)
         {
-            if (sm.StrikeClass.CheckForTargets() || sm.InputManager.StrikeAction.ReadValue<float>() != 0)
+            if (sm.StrikeClass.CheckForTargets())
             {
                 sm.ChangeState(sm.StrikeState);
             }

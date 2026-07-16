@@ -15,7 +15,11 @@ public class OnDestroyAddBall : MonoBehaviour, IOnDestroy
 
     public void OnDestroyed(GameObject obj)
     {
-        if (_ball && obj && _bm)
+        Debug.Log("called onDestroyed");
+
+        if (!_bm) _bm = FindAnyObjectByType<BallManager>();
+
+        if (obj && _bm)
         {
             Debug.Log(obj.transform.position);
 
