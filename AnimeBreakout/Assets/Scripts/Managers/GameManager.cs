@@ -9,7 +9,8 @@ namespace Game
     {
         [SerializeField] BallManager _bm;
         [SerializeField] LayoutManager _lm;
-        //[SerializeField] UIManager _um;
+        [SerializeField] ScoreManager _sm;
+        [SerializeField] UIManager _um;
 
         [SerializeField] Vector2 _playerSpawn;
 
@@ -21,7 +22,15 @@ namespace Game
 
             if (_bm) _bm.StartManager();
             if (_lm) _lm.StartManager();
-            //if (_um) _um.StartManager();
+            if (_um) _um.StartManager();
+
+            if (_sm)
+            {
+                _sm.StartManager();
+                
+                _lm.SetScoreManager(_sm);
+                _um.SetScoreManager(_sm);
+            }
         }
     }
 }

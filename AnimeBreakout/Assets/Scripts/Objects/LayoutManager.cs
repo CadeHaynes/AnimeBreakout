@@ -1,10 +1,10 @@
 using System.Collections.Generic;
+
 using UnityEngine;
+
 using Game.Objects.Blocks;
 using Game.Objects.Balls;
-using UnityEngine.Rendering;
 using Game.Interfaces;
-using Unity.VisualScripting;
 
 namespace Game.Objects.Layout
 {
@@ -23,6 +23,8 @@ namespace Game.Objects.Layout
         public event System.Action OnAirBlockDestroyed;
         public event System.Action OnGroundBlockDestroyed;
 
+        ScoreManager _sm;
+
         // Update is called once per frame
         void Update()
         {
@@ -35,7 +37,14 @@ namespace Game.Objects.Layout
 
         public void StartManager()
         {
+            _sm = FindAnyObjectByType<ScoreManager>();
+
             InitialiseLayout(true);
+        }
+
+        public void SetScoreManager(ScoreManager sm)
+        {
+            _sm = sm;
         }
 
         void InitialiseLayout(bool resetGround = false)
@@ -135,6 +144,8 @@ namespace Game.Objects.Layout
             else _currentAirBlocks.Remove(block);
 
             // _totalBlocks is recalculated each Update, so don't manage it here.
+
+            _sm.IncrementScore();
         }
 
         public void DamageBlock(Ball ball)

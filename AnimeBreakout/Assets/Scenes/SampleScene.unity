@@ -198,6 +198,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &330947979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7624470355698045273, guid: 4625409bdb4717b40b756833640366cb, type: 3}
+  m_PrefabInstance: {fileID: 6172340157096474077}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &381806791
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,6 +768,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &1226046477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2482894886579349400, guid: 4625409bdb4717b40b756833640366cb, type: 3}
+  m_PrefabInstance: {fileID: 6172340157096474077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1226046481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226046477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf7c24b14651a14f95703649db048db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UIManager
+  _scoreText: {fileID: 2137964957}
+  _healthText: {fileID: 330947979}
 --- !u!1 &1292131723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,6 +1119,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &1412338287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6737899436931124875, guid: edb8df38e51ea264e980f479547707a2, type: 3}
+  m_PrefabInstance: {fileID: 7279540711862907750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1412338290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412338287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f640649f3edceff4f848ccc4814dd11c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.ScoreManager
+  _score: 0
+  _scoreMultiplier: 1
+  _scoreMultiplierIncrement: 0.5
+  _scoreBall: 100
+--- !u!114 &2137964957 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5243076559043318397, guid: 4625409bdb4717b40b756833640366cb, type: 3}
+  m_PrefabInstance: {fileID: 6172340157096474077}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &6172340157096474077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1184,7 +1246,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2482894886579349400, guid: 4625409bdb4717b40b756833640366cb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1226046481}
   m_SourcePrefab: {fileID: 100100000, guid: 4625409bdb4717b40b756833640366cb, type: 3}
 --- !u!1001 &7279540711862907750
 PrefabInstance:
@@ -1234,6 +1299,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1991348536283333848, guid: edb8df38e51ea264e980f479547707a2, type: 3}
+      propertyPath: _sm
+      value: 
+      objectReference: {fileID: 1412338290}
+    - target: {fileID: 1991348536283333848, guid: edb8df38e51ea264e980f479547707a2, type: 3}
+      propertyPath: _um
+      value: 
+      objectReference: {fileID: 1226046481}
     - target: {fileID: 1991348536283333848, guid: edb8df38e51ea264e980f479547707a2, type: 3}
       propertyPath: _playerPrefab
       value: 
@@ -2201,7 +2274,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6737899436931124875, guid: edb8df38e51ea264e980f479547707a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1412338290}
   m_SourcePrefab: {fileID: 100100000, guid: edb8df38e51ea264e980f479547707a2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
