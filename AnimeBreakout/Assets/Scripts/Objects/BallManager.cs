@@ -22,6 +22,7 @@ namespace Game.Objects.Balls
         public int BallCount { get; private set; }
         public float CurrentBallSpeed { get { return _currentBallSpeed; } }
         public float BallSpeedStep { get { return _ballSpeedStep; } }
+        public Vector2 StartBallPos { get { return _startBallPos; } }
 
         public void StartManager()
         {
@@ -33,17 +34,8 @@ namespace Game.Objects.Balls
             AddNewBall(_startBallPos);
         }
 
-        //Just for testing
-        /*
-        void Start()
-        {
-            StartManager();
-        }
-        */
-
         public void AddNewBall(Vector2 pos)
         {
-            
             if (BallCount == _balls.Count)
             {
                 InstantiateNewBall(pos);

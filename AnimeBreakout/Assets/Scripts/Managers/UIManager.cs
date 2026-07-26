@@ -1,3 +1,4 @@
+using Game.Objects.Balls;
 using UnityEngine;
 
 namespace Game
@@ -5,6 +6,7 @@ namespace Game
     public class UIManager : MonoBehaviour
     {
         ScoreManager _sm;
+        BallManager _bm;
 
         [SerializeField] TMPro.TextMeshProUGUI _scoreText;
         [SerializeField] TMPro.TextMeshProUGUI _healthText;
@@ -23,6 +25,11 @@ namespace Game
             _sm = sm;
         }
 
+        public void SetBallManager(BallManager bm)
+        {
+            _bm = bm;
+        }
+
         // Update is called once per frame
         void Update()
         {
@@ -31,7 +38,9 @@ namespace Game
                 if (_displayedScore != _sm.Score)
                 {
                     _displayedScore = _sm.Score;
-                    _scoreText.text = _displayedScore.ToString("0");
+
+                    var mult = _bm.BallCount + _sm.ScoreMultiplier;
+                    _scoreText.text = _displayedScore.ToString("0") + " x" + mult.ToString("0");
                 }
             }
         }

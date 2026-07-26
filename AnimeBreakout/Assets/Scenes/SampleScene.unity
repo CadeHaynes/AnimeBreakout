@@ -1341,11 +1341,11 @@ PrefabInstance:
       objectReference: {fileID: 5286770219018315722, guid: 09b78681a1244a1449ae38ee991d01fb, type: 3}
     - target: {fileID: 4434621148020498930, guid: edb8df38e51ea264e980f479547707a2, type: 3}
       propertyPath: _startBallPos.x
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4434621148020498930, guid: edb8df38e51ea264e980f479547707a2, type: 3}
       propertyPath: _startBallPos.y
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4727521087085328938, guid: edb8df38e51ea264e980f479547707a2, type: 3}
       propertyPath: m_ColliderPaths.Array.size

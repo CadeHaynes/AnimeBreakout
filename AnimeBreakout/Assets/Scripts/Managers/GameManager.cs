@@ -22,12 +22,19 @@ namespace Game
 
             if (_bm) _bm.StartManager();
             if (_lm) _lm.StartManager();
-            if (_um) _um.StartManager();
+
+            if (_um)
+            {
+                _um.StartManager();
+
+                _um.SetBallManager(_bm);
+            }
 
             if (_sm)
             {
                 _sm.StartManager();
                 
+                _sm.SetBallManager(_bm);
                 _lm.SetScoreManager(_sm);
                 _um.SetScoreManager(_sm);
             }

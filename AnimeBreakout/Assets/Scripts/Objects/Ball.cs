@@ -12,6 +12,8 @@ namespace Game.Objects.Balls
 
         BallManager _bm;
 
+        TrailRenderer _trail;
+
         bool _isStruck = false;
         bool _isBunted = false;
         bool _buntable = true;
@@ -21,6 +23,9 @@ namespace Game.Objects.Balls
         float _buntHeight = 5f;
         float _buntXModifier = 0.5f;
         float _buntCooldown = 0.2f;
+        float _lastYPos = 0f;
+        float _ballDropTimer;
+        [SerializeField] float _ballDropTimerMax = 5f;
 
         int _damage = 1;
 
@@ -31,6 +36,9 @@ namespace Game.Objects.Balls
         void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _trail = GetComponent<TrailRenderer>();
+
+            _ballDropTimer = _ballDropTimerMax;
         }
 
         // Update is called once per frame
@@ -43,6 +51,25 @@ namespace Game.Objects.Balls
             {
                 _isStruck = false;
             }
+
+            var currYPos = transform.position.y;
+            
+            if (_lastYPos != 0 && currYPos == _lastYPos)
+            {
+                _ballDropTimer -= Time.deltaTime;
+
+                if (_ballDropTimer <= 0)
+                {
+                    _isBunted = true;
+                    _ballDropTimer = _ballDropTimerMax;
+                }
+            }
+            else
+            {
+                _ballDropTimer = _ballDropTimerMax;
+            }
+
+            _lastYPos = currYPos;
         }
 
         public void Strike(float angle, GameObject striker)
@@ -131,6 +158,11 @@ namespace Game.Objects.Balls
                     else if (_bm.BallCount <= 1)
                     {
                         TryToDamage(_struckBy);
+
+                        transform.position = _bm.StartBallPos;
+                        _rb.linearVelocity = Vector2.zero;
+                        _isStruck = false;
+                        _trail.Clear();
                     }
                 }
 
