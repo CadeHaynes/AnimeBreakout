@@ -29,6 +29,13 @@ namespace Game
                 return _scoreMultiplier;
             }
         }
+        public float ScoreBall
+        {
+            get
+            {
+                return _scoreBall;
+            }
+        }
         
         public void StartManager()
         {

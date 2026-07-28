@@ -28,6 +28,7 @@ namespace Game
                 _um.StartManager();
 
                 _um.SetBallManager(_bm);
+                _um.SetLayoutManager(_lm);
             }
 
             if (_sm)
