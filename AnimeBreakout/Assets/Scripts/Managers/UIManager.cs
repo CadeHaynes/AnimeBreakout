@@ -35,13 +35,10 @@ namespace Game
         {
             if (_sm)
             {
-                if (_displayedScore != _sm.Score)
-                {
-                    _displayedScore = _sm.Score;
+                _displayedScore = _sm.Score;
 
-                    var mult = _bm.BallCount + _sm.ScoreMultiplier;
-                    _scoreText.text = _displayedScore.ToString("0") + " x" + mult.ToString("0");
-                }
+                var mult = _bm.BallCount + _sm.ScoreMultiplier;
+                _scoreText.text = _displayedScore.ToString("0") + " x" + mult.ToString("0");
             }
         }
     }

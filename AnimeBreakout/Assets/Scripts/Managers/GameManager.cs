@@ -35,6 +35,7 @@ namespace Game
                 _sm.StartManager();
                 
                 _sm.SetBallManager(_bm);
+                _sm.SetLayoutManager(_lm);
                 _lm.SetScoreManager(_sm);
                 _um.SetScoreManager(_sm);
             }

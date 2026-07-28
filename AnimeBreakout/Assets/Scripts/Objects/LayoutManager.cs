@@ -140,6 +140,9 @@ namespace Game.Objects.Layout
         {
             block.gameObject.SetActive(false);
 
+            if (_currentGroundBlocks.Contains(block)) OnGroundBlockDestroyed?.Invoke();
+            if (_currentAirBlocks.Contains(block)) OnAirBlockDestroyed?.Invoke();
+
             if (block.IsGround) _currentGroundBlocks.Remove(block);
             else _currentAirBlocks.Remove(block);
 
@@ -167,9 +170,6 @@ namespace Game.Objects.Layout
                 }
 
                 currentBlock.TakeDamage(ball.Damage);
-
-                if (_currentGroundBlocks.Contains(currentBlock)) OnGroundBlockDestroyed?.Invoke();
-                if (_currentAirBlocks.Contains(currentBlock)) OnAirBlockDestroyed?.Invoke();
             }
 
         }
