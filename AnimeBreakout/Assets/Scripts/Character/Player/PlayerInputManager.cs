@@ -48,15 +48,5 @@ namespace Game.Character.Player
             _strikeAction = _playerControls.FindActionMap(_actionMapName).FindAction(_strikeActionName);
             _sprintAction = _playerControls.FindActionMap(_actionMapName).FindAction(_sprintActionName);
         }
-
-        void Start()
-        {
-            
-        }
-
-        void Update()
-        {
-
-        }
     }
 }

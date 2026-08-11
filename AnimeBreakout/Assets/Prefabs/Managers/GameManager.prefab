@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1421970195105109321}
   - component: {fileID: 1991348536283333848}
+  - component: {fileID: 2518946373007121260}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Manager
@@ -80,8 +81,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.GameManager
   _bm: {fileID: 4434621148020498930}
   _lm: {fileID: 2311930113584627844}
-  _playerSpawn: {x: 0, y: 0}
+  _sm: {fileID: 2518946373007121260}
+  _um: {fileID: 0}
+  _playerSpawn: {x: 0, y: -4}
   _playerPrefab: {fileID: 1551743113096196708, guid: e1c756035539ab747bdc7ec9e6a4e105, type: 3}
+--- !u!114 &2518946373007121260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6737899436931124875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f640649f3edceff4f848ccc4814dd11c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.ScoreManager
+  _score: 0
+  _scoreMultiplier: 0
+  _scoreMultiplierIncrement: 0.5
+  _scoreBall: 100
 --- !u!1001 &1607464408748101331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,6 +153,14 @@ PrefabInstance:
       propertyPath: _lm
       value: 
       objectReference: {fileID: 2311930113584627844}
+    - target: {fileID: 3153694209537601313, guid: 3a72dff44c988c04d863d133a6bcec5f, type: 3}
+      propertyPath: _startBallPos.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3153694209537601313, guid: 3a72dff44c988c04d863d133a6bcec5f, type: 3}
+      propertyPath: _startBallPos.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6977761888254151004, guid: 3a72dff44c988c04d863d133a6bcec5f, type: 3}
       propertyPath: m_Name
       value: BallManager
@@ -211,6 +238,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8743961769793049354, guid: 82a27b6eccbee1f4fb78b6f22530444f, type: 3}
+      propertyPath: _groundLayoutPrefab
+      value: 
+      objectReference: {fileID: 5286770219018315722, guid: 138345814a33e7f43a16e75be2c0499a, type: 3}
+    - target: {fileID: 8743961769793049354, guid: 82a27b6eccbee1f4fb78b6f22530444f, type: 3}
+      propertyPath: _layoutPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8743961769793049354, guid: 82a27b6eccbee1f4fb78b6f22530444f, type: 3}
+      propertyPath: '_layoutPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5286770219018315722, guid: 09b78681a1244a1449ae38ee991d01fb, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

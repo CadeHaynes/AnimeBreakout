@@ -1,7 +1,10 @@
 using Game.Objects.Balls;
-using UnityEngine;
-using TMPro;
 using Game.Objects.Layout;
+
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+using TMPro;
 
 namespace Game
 {
@@ -15,16 +18,30 @@ namespace Game
         [SerializeField] TextMeshProUGUI _healthText;
         [SerializeField] TextMeshProUGUI _scorePopupText;
 
+        [SerializeField] GameObject _menuPanel;
+
+        [SerializeField] InputActionAsset _inputActions;
+        [SerializeField] string _uiActionMap = "UI";
+        [SerializeField] string _pauseActionName = "Pause";
+
+        InputAction _pause;
+
         float _displayedScore = 0f;
         float _displayedHealth = 0f;
 
         float _scorePopupMaxTime = 2f;
         float _scorePopupCurrentTime = 2f;
+
+        bool _pausePressed = false;
         
         public void StartManager()
         {
             _displayedScore = 0f;
             _displayedHealth = 0f;
+
+            _pause = _inputActions.FindActionMap(_uiActionMap).FindAction(_pauseActionName);
+
+            _pause.Enable();
         }
 
         public void SetScoreManager(ScoreManager sm)
@@ -45,6 +62,17 @@ namespace Game
             {
                 _lm.OnGroundBlockDestroyed += DisplayScorePopup;
                 _lm.OnAirBlockDestroyed += DisplayScorePopup;
+            }
+        }
+
+        public void ToggleMenu(bool isActive)
+        {
+            if (_menuPanel)
+            {
+                _menuPanel.SetActive(isActive);
+
+                if (isActive) Time.timeScale = 0f;
+                else Time.timeScale = 1f;
             }
         }
 
@@ -77,6 +105,18 @@ namespace Game
                 {
                     _scorePopupText.gameObject.SetActive(false);
                 }
+            }
+
+            if (_menuPanel)
+            {
+                if (_pause.ReadValue<float>() > 0f && !_pausePressed)
+                {
+                    _pausePressed = true;
+
+                    if (_menuPanel.activeSelf) ToggleMenu(false);
+                    else ToggleMenu(true);
+                }
+                else if (_pause.ReadValue<float>() == 0f) _pausePressed = false;
             }
         }
     }
