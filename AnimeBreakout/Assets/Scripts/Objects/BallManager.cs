@@ -34,6 +34,23 @@ namespace Game.Objects.Balls
             AddNewBall(_startBallPos);
         }
 
+        public void Update()
+        {
+            if (BallCount > 0)
+            {
+                foreach (var ball in _balls)
+                {
+                    if (!ball.gameObject.activeSelf) continue;
+
+                    if (ball.IsSoftlocked)
+                    {
+                        ball.transform.position = _startBallPos;
+                        ball.ActivateBall(this);
+                    }
+                }
+            }
+        }
+
         public void AddNewBall(Vector2 pos)
         {
             if (BallCount == _balls.Count)

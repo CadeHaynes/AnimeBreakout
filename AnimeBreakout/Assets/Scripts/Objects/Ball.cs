@@ -16,6 +16,7 @@ namespace Game.Objects.Balls
 
         bool _isStruck = false;
         bool _isBunted = false;
+        bool _isSoftlocked = false;
         bool _buntable = true;
 
         float _currentSpeed;
@@ -23,13 +24,15 @@ namespace Game.Objects.Balls
         float _buntHeight = 5f;
         float _buntXModifier = 0.5f;
         float _buntCooldown = 0.2f;
-        float _lastYPos = 0f;
-        float _ballDropTimer;
-        [SerializeField] float _ballDropTimerMax = 5f;
+        float _stuckBallTimer;
+        [SerializeField] float _stuckBallTimerMax = 5f;
 
         int _damage = 1;
 
+        Vector2 _lastPos;
+
         public bool IsStruck { get { return _isStruck; } }
+        public bool IsSoftlocked { get { return _isSoftlocked; } }
         public int Damage { get { return _damage; } }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -37,8 +40,6 @@ namespace Game.Objects.Balls
         {
             _rb = GetComponent<Rigidbody2D>();
             _trail = GetComponent<TrailRenderer>();
-
-            _ballDropTimer = _ballDropTimerMax;
         }
 
         // Update is called once per frame
@@ -52,26 +53,41 @@ namespace Game.Objects.Balls
                 _isStruck = false;
                 _struckBy = null;
             }
+        }
 
-            var currYPos = transform.position.y;
-            currYPos = Mathf.Round(currYPos * 10f) / 10f; // round to 1 decimal place
+        private void FixedUpdate()
+        {
+            CheckForStuckBall(new Vector2(transform.position.x, transform.position.y));
+        }
+
+        void CheckForStuckBall(Vector2 currPos)
+        {
+            // round currPos to 2 decimal places
+            currPos.x = Mathf.Round(currPos.x * 100f) / 100f; 
+            currPos.y = Mathf.Round(currPos.y * 100f) / 100f;
             
-            if (_lastYPos != 0 && currYPos == _lastYPos)
+            if (_lastPos != Vector2.zero)
             {
-                _ballDropTimer -= Time.deltaTime;
-
-                if (_ballDropTimer <= 0)
+                if (currPos.x == _lastPos.x || currPos.y == _lastPos.y)
                 {
-                    _isBunted = true;
-                    _ballDropTimer = _ballDropTimerMax;
+                    _stuckBallTimer -= Time.deltaTime;
+
+                    if (_stuckBallTimer <= 0)
+                    {
+                        _isSoftlocked = true;
+                    }
+                }
+                else
+                {
+                    _stuckBallTimer = _stuckBallTimerMax;
                 }
             }
             else
             {
-                _ballDropTimer = _ballDropTimerMax;
+                _stuckBallTimer = _stuckBallTimerMax;
             }
 
-            _lastYPos = currYPos;
+            _lastPos = currPos;
         }
 
         public void Strike(float angle, GameObject striker)
@@ -127,6 +143,10 @@ namespace Game.Objects.Balls
             gameObject.SetActive(true);
             _isStruck = false;
             _currentSpeed = bm.CurrentBallSpeed;
+
+            _isSoftlocked = false;
+            _stuckBallTimer = _stuckBallTimerMax;
+            if (_rb) _rb.linearVelocity = Vector2.zero;
         }
 
         public void SetBallSpeed(float speed)
@@ -171,6 +191,8 @@ namespace Game.Objects.Balls
                 if (collision.gameObject.tag == "Block")
                 {
                     //TryToDamage(collision.gameObject);
+
+                    _stuckBallTimer = _stuckBallTimerMax;
                 }
             }
         }
