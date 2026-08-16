@@ -147,6 +147,7 @@ namespace Game.Objects.Balls
             _isSoftlocked = false;
             _stuckBallTimer = _stuckBallTimerMax;
             if (_rb) _rb.linearVelocity = Vector2.zero;
+            _trail.Clear();
         }
 
         public void SetBallSpeed(float speed)
