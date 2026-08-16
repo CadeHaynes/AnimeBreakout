@@ -19,6 +19,7 @@ namespace Game
         [SerializeField] TextMeshProUGUI _scorePopupText;
 
         [SerializeField] GameObject _menuPanel;
+        [SerializeField] GameObject _gameOverPanel;
 
         [SerializeField] InputActionAsset _inputActions;
         [SerializeField] string _uiActionMap = "UI";
@@ -27,7 +28,7 @@ namespace Game
         InputAction _pause;
 
         float _displayedScore = 0f;
-        float _displayedHealth = 0f;
+        // float _displayedHealth = 0f;
 
         float _scorePopupMaxTime = 2f;
         float _scorePopupCurrentTime = 2f;
@@ -37,7 +38,7 @@ namespace Game
         public void StartManager()
         {
             _displayedScore = 0f;
-            _displayedHealth = 0f;
+            // _displayedHealth = 0f;
 
             _pause = _inputActions.FindActionMap(_uiActionMap).FindAction(_pauseActionName);
 
@@ -73,6 +74,19 @@ namespace Game
 
                 if (isActive) Time.timeScale = 0f;
                 else Time.timeScale = 1f;
+            }
+        }
+
+        public void ToggleGameOver(bool isActive)
+        {
+            if (_gameOverPanel)
+            {
+                _gameOverPanel.SetActive(isActive);
+
+                /*
+                if (isActive) Time.timeScale = 0f;
+                else Time.timeScale = 1f;
+                */
             }
         }
 
