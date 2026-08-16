@@ -50,9 +50,11 @@ namespace Game.Objects.Balls
             if (_isStruck && !_struckBy.activeSelf)
             {
                 _isStruck = false;
+                _struckBy = null;
             }
 
             var currYPos = transform.position.y;
+            currYPos = Mathf.Round(currYPos * 10f) / 10f; // round to 1 decimal place
             
             if (_lastYPos != 0 && currYPos == _lastYPos)
             {
